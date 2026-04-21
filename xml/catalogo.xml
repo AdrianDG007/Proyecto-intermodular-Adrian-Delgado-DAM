@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="esquema.xsd">
+
+    <tienda>
+        <nombre> GameStore </nombre>
+        <direccion> Calle Mayor 15, Madrid </direccion>
+        <email> info@gamestore.es </email>
+    </tienda>
+
+    <videojuegos>
+
+        <videojuego id = "1">
+            <titulo> God of War Ragnarok </titulo>
+            <plataforma> PS5 </plataforma>
+            <precio> 69.99 </precio>
+            <stock> 15 </stock>
+            <categoria> Acción </categoria>
+            <proveedor> Sony Interactive </proveedor>
+        </videojuego>
+
+        <videojuego id = "2">
+            <titulo> The Witcher 3 </titulo>
+            <plataforma> PC </plataforma>
+            <precio> 29.99 </precio>
+            <stock> 30 </stock>
+            <categoria> RPG </categoria>
+            <proveedor> Koch Media España </proveedor>
+        </videojuego>
+
+        <videojuego id="3">
+            <titulo> FIFA 24 </titulo>
+            <plataforma> PS5 </plataforma>
+            <precio> 59.99 </precio>
+            <stock> 20 </stock>
+            <categoria> Deportes </categoria>
+            <proveedor> Koch Media España </proveedor>
+        </videojuego>
+
+        <videojuego id = "4">
+            <titulo> Zelda: Tears of the Kingdom </titulo>
+            <plataforma> Switch </plataforma>
+            <precio> 59.99 </precio>
+            <stock> 25 </stock>
+            <categoria> Aventura </categoria>
+            <proveedor> Nintendo España </proveedor>
+        </videojuego>
+
+        <videojuego id = "5">
+            <titulo> Elden Ring </titulo>
+            <plataforma> PC </plataforma>
+            <precio> 49.99 </precio>
+            <stock> 18 </stock>
+            <categoria> RPG </categoria>
+            <proveedor> Bandai Namco ES </proveedor>
+        </videojuego>
+
+        <videojuego id = "6">
+            <titulo> Residen t Evil 4 </titulo>
+            <plataforma> PS5 </plataforma>
+            <precio> 49.99 </precio>
+            <stock> 12 </stock>
+            <categoria> Terror </categoria>
+            <proveedor> Sony Interactive </proveedor>
+        </videojuego>
+
+        <videojuego id = "7">
+            <titulo> Age of Empires IV </titulo>
+            <plataforma> PC </plataforma>
+            <precio> 39.99 </precio>
+            <stock> 10 </stock>
+            <categoria> Estrategia </categoria>
+            <proveedor> Koch Media España </proveedor>
+        </videojuego>
+
+        <videojuego id = "8">
+            <titulo> Spider-Man 2 </titulo>
+            <plataforma> PS5 </plataforma>
+            <precio> 59.99 </precio>
+            <stock> 8 </stock>
+            <categoria> Acción </categoria>
+            <proveedor> Sony Interactive </proveedor>
+        </videojuego>
+
+        <videojuego id = "9">
+            <titulo> Mario Kart 8 Deluxe </titulo>
+            <plataforma> Switch </plataforma>
+            <precio> 49.99 </precio>
+            <stock> 22 </stock>
+            <categoria> Deportes </categoria>
+            <proveedor> Nintendo España </proveedor>
+        </videojuego>
+
+        <videojuego id = "10">
+            <titulo> Hogwarts Legacy </titulo>
+            <plataforma> PC </plataforma>
+            <precio> 49.99 </precio>
+            <stock> 14 </stock>
+            <categoria> RPG </categoria>
+            <proveedor> Bandai Namco ES </proveedor>
+        </videojuego>
+
+        <videojuego id = "11">
+            <titulo> The Last of Us PartI< /titulo>
+            <plataforma> PC </plataforma>
+            <precio> 39.99 </precio>
+            <stock> 9 </stock>
+            <categoria> Acción </categoria>
+            <proveedor> Sony Interactive </proveedor>
+        </videojuego>
+
+        <videojuego id = "12">
+            <titulo> Pikmin 4 </titulo>
+            <plataforma> Switch </plataforma>
+            <precio> 49.99 </precio>
+            <stock> 11 </stock>
+            <categoria> Aventura </categoria>
+            <proveedor> Nintendo España </proveedor>
+        </videojuego>
+
+    </videojuegos>
+
+</catalogo>

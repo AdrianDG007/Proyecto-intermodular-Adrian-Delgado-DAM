@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+< xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+
+    <!--
+    Tienda de Videojuegos - Esquema de validación del catálogo
+    Módulo : Lenguajes de Marcas (0373)
+    Proyecto Intermodular DAM 1º
+    -->
+
+    <!--Elemento raíz-->
+    < xs:element name = "catalogo" >
+        < xs:complexType >
+            < xs:sequence >
+                < xs:element name = "tienda"      type = "tipoTienda"     />
+                < xs:element name = "videojuegos" type = "tipoVideojuegos"/>
+            </ xs:sequence >
+        </ xs:complexType >
+    </ xs:element >
+
+    <!--TIPO : tienda-->
+    < xs:complexType name = "tipoTienda" >
+        < xs:sequence >
+            < xs:element name = "nombre"    type = "xs:string" />
+            < xs:element name = "direccion" type = "xs:string" />
+            < xs:element name = "email"     type = "tipoEmail" />
+        </ xs:sequence >
+    </ xs:complexType >
+
+    <!--TIPO: videojuegos (contiene 1 o más videojuego)-->
+    < xs:complexType name = "tipoVideojuegos" >
+        < xs:sequence >
+            < xs:element name      = "videojuego" type  = "tipoVideojuego"
+                         minOccurs = "1"     maxOccurs  = "unbounded" />
+        </ xs:sequence >
+    </ xs:complexType >
+
+    <!--TIPO: videojuego-->
+    < xs:complexType name = "tipoVideojuego" >
+        < xs:sequence >
+            < xs:element name = "titulo"     type = "tipoCadenaCorta" />
+            < xs:element name = "plataforma" type = "tipoPlataforma"  />
+            < xs:element name = "precio"     type = "tipoPrecio"      />
+            < xs:element name = "stock"      type = "tipoStock"       />
+            < xs:element name = "categoria"  type = "tipoCategoria"   />
+            < xs:element name = "proveedor"  type = "xs:string"       />
+        </ xs:sequence >
+        <!--El atributo id es obligatorio y debe ser entero positivo-->
+        < xs:attribute name="id" type="xs:positiveInteger" use="required" />
+    </xs:complexType>
+
+    <!--TIPOS SIMPLES CON RESTRICCIONES-->
+
+    <!--Email : debe contener @-->
+    < xs:simpleType name = "tipoEmail" >
+        < xs:restriction base = "xs:string" >
+            <xs:pattern value = "[^@]+@[^@]+\.[^@]+" />
+        </ xs:restriction >
+    </ xs:simpleType >
+
+    <!--Cadena corta : entre 1 y 150 caracteres-->
+    < xs:simpleType name = "tipoCadenaCorta" >
+        < xs:restriction base = "xs:string">
+            < xs:minLength value = "1" />
+            < xs:maxLength value = "150" />
+        </ xs:restriction >
+    </ xs:simpleType >
+
+    <!--Plataforma : solo valores permitidos-->
+    < xs:simpleType name = "tipoPlataforma" >
+        < xs:restriction base = "xs:string" >
+            < xs:enumeration value = "PS4"    />
+            < xs:enumeration value = "PS5"    />
+            < xs:enumeration value = "Xbox"   />
+            < xs:enumeration value = "Switch" />
+            < xs:enumeration value = "PC"     />
+        </ xs:restriction >
+    </ xs:simpleType >
+
+    <!--Precio : decimal, mínimo 0.01-->
+    < xs:simpleType name = "tipoPrecio" >
+        < xs:restriction base = "xs:decimal" >
+            < xs:minInclusive value   = "0.01" />
+            < xs:totalDigits value    = "8"    />
+            < xs:fractionDigits value = "2"    />
+        </ xs:restriction >
+    </ xs:simpleType >
+
+    <!--Stock : entero, mínimo 0-->
+    < xs:simpleType name = "tipoStock" >
+        < xs:restriction base = "xs:integer" >
+            < xs:minInclusive value = "0" />
+        </ xs:restriction >
+    </ xs:simpleType >
+
+    <!--Categoría : solo valores permitidos-->
+    <xs:simpleType name="tipoCategoria" >
+        < xs:restriction base="xs:string" >
+            < xs:enumeration value = "Acción"     />
+            < xs:enumeration value = "RPG"        />
+            < xs:enumeration value = "Deportes"   />
+            < xs:enumeration value = "Aventura"   />
+            < xs:enumeration value = "Estrategia" />
+            < xs:enumeration value = "Terror"     />
+        </ xs:restriction >
+    </ xs:simpleType >
+
+</xs:schema>
