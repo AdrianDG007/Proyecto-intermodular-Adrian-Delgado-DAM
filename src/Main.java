@@ -6,10 +6,11 @@ import model.Cliente;
 import model.Pedido;
 
 import java.util.Scanner;
+import java.util.Locale;
 
 public class Main {
 
-    static Scanner sc                    = new Scanner           (System.in);
+    static Scanner sc                    = new Scanner           (System.in).useLocale (Locale.US);
     static VideojuegoService vjService   = new VideojuegoService ();
     static ClienteService clienteService = new ClienteService    ();
     static PedidoService pedidoService   = new PedidoService     ();
@@ -55,29 +56,29 @@ public class Main {
             switch (op) {
                 case 1 -> vjService.listarTodos ();
                 case 2 -> {
-                    System.out.print ("Plataforma (PS4/PS5/PC/Switch/Xbox)  : ");
+                    System.out.print ("Plataforma (PS4/PS5/PC/Switch/Xbox) : ");
                     String plat = sc.nextLine ();
                     vjService.buscarPorPlataforma (plat);
                 }
                 case 3 -> {
-                    System.out.print ("Titulo : ");
-                    String titulo = sc.nextLine ();
+                    System.out.print ("Titulo : "   );
+                    String titulo = sc.nextLine      ();
                     System.out.print ("Plataforma : ");
-                    String plat   = sc.nextLine ();
-                    System.out.print ("Precio : "    );
-                    double precio = leerDouble  ();
-                    System.out.print ("Stock : "      );
-                    int stock     = leerInt     ();
-                    System.out.print ("ID categoria (1=Accion 2=RPG 3=Deportes 4=Aventura 5=Estrategia 6=Terror)  : ");
-                    int idCat     = leerInt     ();
-                    System.out.print ("ID proveedor (1=Koch 2=Bandai 3=Sony 4=Nintendo)  : ");
-                    int idProv    = leerInt     ();
+                    String plat   = sc.nextLine      ();
+                    System.out.print ("Precio : "   );
+                    double precio = leerDouble       ();
+                    System.out.print ("Stock : "    );
+                    int stock     = leerInt          ();
+                    System.out.print (" ID categoria (1=Accion 2=RPG 3=Deportes 4=Aventura 5=Estrategia 6=Terror) : ");
+                    int idCat     = leerInt          ();
+                    System.out.print (" ID proveedor (1=Koch 2=Bandai 3=Sony 4=Nintendo) : ");
+                    int idProv    = leerInt          ();
                     vjService.añadir ( new Videojuego (titulo, plat, precio, stock, idCat, idProv) );
                 }
                 case 4 -> {
-                    System.out.print ("ID del videojuego : ");
-                    int id = leerInt ();
-                    System.out.print ("Nuevo precio : ");
+                    System.out.print (" ID del videojuego : ");
+                    int id        = leerInt    ();
+                    System.out.print (" Nuevo precio : ");
                     double precio = leerDouble ();
                     vjService.modificarPrecio (id, precio);
                 }
@@ -109,7 +110,7 @@ public class Main {
             System.out.println ("5. Eliminar cliente"    );
             System.out.println ("0. Volver"              );
             System.out.print   ("Elige : "               );
-            op =   leerInt ();
+            op = leerInt ();
             switch (op) {
                 case 1 -> clienteService.listarTodos ();
                 case 2 -> {
@@ -129,10 +130,10 @@ public class Main {
                     clienteService.añadir ( new Cliente (nombre, apellidos, email, tel) );
                 }
                 case 4 -> {
-                    System.out.print ("ID del cliente : ");
-                    int id = leerInt         ();
-                    System.out.print ("Nuevo telefono : ");
-                    String tel = sc.nextLine ();
+                    System.out.print (" ID del cliente : "  );
+                    int id     = leerInt         ();
+                    System.out.print (" Nuevo telefono : "  );
+                    String tel = sc.nextLine     ();
                     clienteService.modificarTelefono (id, tel);
                 }
                 case 5 -> {
@@ -158,7 +159,7 @@ public class Main {
             System.out.println ("5. Cambiar estado"             );
             System.out.println ("0. Volver"                     );
             System.out.print   ("Elige : "                      );
-            op =   leerInt ();
+            op = leerInt ();
             switch (op) {
                 case 1 -> pedidoService.listarTodos ();
                 case 2 -> {
@@ -172,19 +173,19 @@ public class Main {
                     pedidoService.verDetalle (id);
                 }
                 case 4 -> {
-                    System.out.print ("ID del cliente : ");
-                    int idCliente = leerInt    ();
-                    System.out.print ("Fecha (yyyy-mm-dd)  : ");
-                    String fecha = sc.nextLine ();
-                    System.out.print ("Total : ");
-                    double total = leerDouble  ();
+                    System.out.print ("ID del cliente : "      );
+                    int idCliente  = leerInt    ();
+                    System.out.print ("Fecha (yyyy-mm-dd) : "  );
+                    String fecha   = sc.nextLine ();
+                    System.out.print ("Total : "               );
+                    double total   = leerDouble  ();
                     pedidoService.crear ( new Pedido (fecha, total, "pendiente", idCliente) );
                 }
                 case 5 -> {
                     System.out.print ("ID del pedido : ");
-                    int id = leerInt ();
-                    System.out.print ("Nuevo estado (pendiente/pagado/enviado/cancelado)  : ");
-                    String estado = sc.nextLine ();
+                    int id        = leerInt      ();
+                    System.out.print ("Nuevo estado (pendiente/pagado/enviado/cancelado) : ");
+                    String estado = sc.nextLine  ();
                     pedidoService.cambiarEstado (id, estado);
                 }
                 case 0 -> {}
@@ -206,7 +207,7 @@ public class Main {
 
     static double leerDouble () {
         while ( !sc.hasNextDouble () ) {
-            System.out.print ("Introduce un numero decimal : ");
+            System.out.print (" Introduce un numero con punto (ej : 49.99) : ");
             sc.next ();
         }
         double d = sc.nextDouble ();
