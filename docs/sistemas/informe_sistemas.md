@@ -53,25 +53,25 @@ El archivo `mysql-connector-j-9.6.0.jar` ya esta dentro de la carpeta `/src` del
 1. Clonar o descargar el repositorio de GitHub
 2. Abrir una terminal en la carpeta `/src`
 3. Crear la base de datos con el script:
-   ```
+
    mysql -u root -p < sql/crear_tablas.sql
-   ```
+
 4. Meter los datos de ejemplo:
-   ```
+
    mysql -u root -p < sql/insertar_datos.sql
-   ```
+
 5. Abrir `src/db/Conexion.java` y poner la contraseña de MySQL:
-   ```java
+java
    private static final String PASSWORD = "tu_contraseña";
-   ```
+
 6. Compilar:
-   ```
+
    javac -cp mysql-connector-j-9.6.0.jar -d . db/Conexion.java model/Videojuego.java model/Cliente.java model/Pedido.java service/VideojuegoService.java service/ClienteService.java service/PedidoService.java Main.java
-   ```
+
 7. Ejecutar:
-   ```
+
    java -cp ".;mysql-connector-j-9.6.0.jar" Main
-   ```
+
 
 ## 6. Usuarios y permisos
 
@@ -82,14 +82,12 @@ El archivo `mysql-connector-j-9.6.0.jar` ya esta dentro de la carpeta `/src` del
 
 La estructura de carpetas del proyecto es esta:
 
-```
 Proyecto-intermodular-Adrian-Delgado-DAM/
 |-- src/          -> codigo fuente Java
 |-- sql/          -> scripts de base de datos
 |-- xml/          -> catalogo XML
 |-- diagrams/     -> diagrama E/R
 L-- docs/         -> documentacion
-```
 
 Los datos se guardan en MySQL en la base de datos `tienda_videojuegos`, que por defecto esta en `C:\ProgramData\MySQL\MySQL Server 8.0\Data\`.
 
@@ -102,9 +100,9 @@ Actualizaciones:
 
 Copias de seguridad:
 - Hacer backup de la base de datos una vez a la semana con este comando:
-  ```
+
   mysqldump -u root -p tienda_videojuegos > backup.sql
-  ```
+
 - Guardar el backup en una carpeta externa o subirlo a la nube
 
 Si la aplicacion falla:
